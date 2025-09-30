@@ -1,0 +1,11 @@
+@URL=http://localhost:3000/users
+POST {{URL}}  
+
+Content -Type: application/json
+{
+  "name": "John Doe",
+  "email": "teste@gmail.com"
+}
+
+//obter todos os usuarios
+GET {{URL}}
