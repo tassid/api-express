@@ -6,16 +6,23 @@ const mongoose = require('mongoose');
 
 require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
 
-const mongoUrl = process.env.MONGO_URL;
+const { MONGO_URL } = process.env;
 
-mongoose.connect(mongoUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('Conectado ao MongoDB com sucesso!');
-}).catch((err) => {
-  console.error('Erro ao conectar ao MongoDB:', err);
+mongoose.connect(MONGO_URL, {
+    minPoolSize: 10,
+    socketTimeoutMS: 45000,
 });
+
+// Configurando conexão com MongoDB
+mongoose.connect(MONGO_URL)
+    .then(() => {
+        console.log("Conectado ao MongoDB! Aeeee!!");
+    })
+    .catch(error => {
+        console.error("Deu zica na conexão!");
+        console.error(error);
+    });
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
