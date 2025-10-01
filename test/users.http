@@ -4,8 +4,14 @@ POST {{URL}}
 Content -Type: application/json
 {
   "name": "Joao Bobo",
-  "email": "teste@gmail.com"
+  "email": "teste@gmail.com",
+  "password": "123456"
 }
 
 ### obter todos os usuarios
 GET {{URL}}
+Authorization: 1234
+
+
+### obter um usuario por id
+GET {{URL}}/68dd623e64c4a151bbd3ce04
