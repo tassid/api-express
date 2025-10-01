@@ -1,7 +1,21 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+
+require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
+
+const mongoUrl = process.env.MONGO_URL;
+
+mongoose.connect(mongoUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('Conectado ao MongoDB com sucesso!');
+}).catch((err) => {
+  console.error('Erro ao conectar ao MongoDB:', err);
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
