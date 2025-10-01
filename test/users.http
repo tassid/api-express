@@ -3,9 +3,9 @@ POST {{URL}}
 
 Content -Type: application/json
 {
-  "name": "John Doe",
+  "name": "Joao Bobo",
   "email": "teste@gmail.com"
 }
 
-//obter todos os usuarios
+### obter todos os usuarios
 GET {{URL}}
